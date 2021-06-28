@@ -28,17 +28,31 @@ end
 
 lex = require('lexer')
 
+-- headings
 local lex_result = lex([[
-#TITLE Neorg Mode Demo
-
-- [ ] big boi
-	- [ ] smol boi
+- [miau
 ]])
 
--- #AUTHOR Raafat Turki
--- #DATE Tue 01 Jun 2021
+-- * This is a heading
+-- ** And a subheading
+-- *** You get the idea
+-- _this_ means italic.
+-- *This* is bold
+-- *_This is bold and italic_*
+-- ~~Strikethrough~~
 
--- local lex_result = lex("- [ ] big boi\n")
+-- todo list
+-- local lex_result = lex([[
+-- Hey look a TODO list!
+-- - [ ] Do something
+-- - [*] Do something else (partially done):
+-- 	- [ ] Extra stuff
+-- 	- [x] Even more stuff
+-- ]])
+
+print("\n- RESULTS ----")
+print("TYPE\tDATA")
+print("--------------")
 
 print(serialize_tokens_lines_arr(lex_result))
 print("lexed " .. #lex_result .. " lines")
